@@ -1,6 +1,6 @@
 # OSPF MD5 Auth Cracker
 
-A python script to crack **OSPF type 2 cryptographic authentication (MD5) secret keys** from **Wireshark capture files** containing **Hello Packets**. *It would also probably be possible to implement it for all/most packet types.*
+A python tool to crack **OSPF type 2 cryptographic authentication (MD5) secret keys** from **Wireshark capture files** containing **Hello Packets**. *It would also probably be possible to implement it for all/most packet types.*
 
 ## Why it works:
 **Authenticated packets have a Auth Crypt Data field containing a MD5 hash**. This hash has been obtained by **concatenating** the **OSPF packet's bytes** with a **secret key**. Normally, all routers know the secret key, so they remake the hash with their secret key; if both match, then it knows that the request is well authenticated. **We can do this same process**, using a wordlist, to **bruteforce** the secret key.
